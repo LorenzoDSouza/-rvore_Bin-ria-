@@ -1,25 +1,34 @@
 package BinaryTree;
 
+import java.util.*;
+
  class Main {
 	 
 	 public static void main(String[] args) {
-	        ArvoreBin arvore = new ArvoreBin();
-	        arvore.inserir(10);
-	        arvore.inserir(5);
-	        arvore.inserir(20);
-	        arvore.inserir(3);
-	        arvore.inserir(7);
+	        ArvoreBin arvore1 = new ArvoreBin();
+	        arvore1.inserir(10);
+	        arvore1.inserir(5);
+	        arvore1.inserir(20);
+	        arvore1.inserir(3);
+	        arvore1.inserir(7);
 
-	        System.out.println("Caminhamento pré-ordem:");
-	        arvore.preOrdem();
-
-	        System.out.println("\nCaminhamento em ordem:");
-	        arvore.central();
-
-	        System.out.println("\nCaminhamento pós-ordem:");
-	        arvore.posOrdem();
 			
-			arvore.gerarArqDot("arvoreBin.dot");
+			arvore1.gerarArqDot("arvoreBin1.dot");
+			
+			arvore1.remover(10);
+			
+			arvore1.gerarArqDot("arvoreBin1remove10.dot");
+			
+			ArvoreBin arvore2 = new ArvoreBin();
+			int i = 0;
+			
+			while(i<30) {
+				Random random = new Random();
+				int valor = random.nextInt(50) + 1;
+				arvore2.inserir(random.nextInt(50) + 1);
+				i++;
+			}
 
+			arvore2.gerarArqDot("arvoreBin2RandomN");
 	    }
 }
